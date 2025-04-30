@@ -64,6 +64,9 @@ describe('JS6 Lab Tests:', () => {
 
   /*--------------------------NEW TESTS BELOW-------------------------------*/
 
+  // Remember that in es6 the fat arrow function is just a function. 
+  // So "() => {}" is the same as "function () {}"
+
     describe ('Question 1a: Sorted array of numbers', () => {
     it('#Should return a sorted array from lowest to highest value.', () => {
       const arrayOfNumbers = [1, 5, 3, 2, 4]
@@ -169,6 +172,59 @@ describe('JS6 Lab Tests:', () => {
   })
 
   describe ("Question 1d: 1d: Only wizards shall pass!", () => {
+    const movieCharacters = [
+      {
+        name: 'Howl',
+        isAWizard: true,
+        quote: `You're wearing that hat? After all the magic I used to make your dress pretty?`,
+      },
+      {
+        name: 'Kalcifer',
+        isAWizard: false,
+        quote: `I don't cook! I'm a scary and powerful fire demon!`,
+      },
+      {
+        name: 'Gandalf',
+        isAWizard: true,
+        quote: `You shall not pass!`,
+      },
+      {
+        name: 'Luke Skywalker',
+        isAWizard: false,
+        quote: `May the Force be with you.`,
+      },
+    ]
+    
+    function onlyWizards(arrayOfCharacters) {
+      return arrayOfCharacters.filter((character) => character.isAWizard == true)
+      //before it was return arrayOfCharacters.filter((character) => character == true) the character.isAWizard was not in there
+    }
+    it("Should return object.isAWizard as true and display on the console as a table.", () => {
+
+    //   expect(onlyWizards(movieCharacters)).to.deep.equal([ // .deep here because of array
+    //     {
+    //       name: 'Howl',
+    //       isAWizard: true,
+    //       quote: `You're wearing that hat? After all the magic I used to make your dress pretty?`,
+    //     },
+    //     {
+    //       name: 'Gandalf',
+    //       isAWizard: true,
+    //       quote: `You shall not pass!`,
+    //     },
+    //   ])
+    // commented out because this test is Not dynamic. If you added more wizards and non-wizards into
+    // the mix, the test would fail
+    
+
+    for (let character of onlyWizards(movieCharacters)) {
+      it ("#Each character should be a wizard", () => {
+        expect(character.isAWizard).to.equal(true)
+      })
+    }
+  })
+
+    
     
   })
 })

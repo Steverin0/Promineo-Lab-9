@@ -158,7 +158,8 @@ const movieCharacters = [
 ]
 
 function onlyWizards(arrayOfCharacters) {
-  return arrayOfCharacters.filter((character) => character == true)
+  return arrayOfCharacters.filter((character) => character.isAWizard == true)
+  //before it was return arrayOfCharacters.filter((character) => character == true) the character.isAWizard was not in there
 }
 
 //check out the console.table() method you can use on objects!
